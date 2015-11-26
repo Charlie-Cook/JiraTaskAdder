@@ -6,7 +6,7 @@ import json, requests, getpass
 
 url = "https://jira.tools.tax.service.gov.uk/rest/api/2/issue/"
 
-anotherTicket = ""
+another_ticket = ""
 
 username = input("Please enter your Jira username: ")
 password = getpass.getpass("Please enter your Jira password: ")
