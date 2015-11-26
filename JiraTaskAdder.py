@@ -2,11 +2,10 @@
 # Adds sub-tasks to Jira tasks
 # Created by Charlie Cook
 
-import json, requests, getpass
+import requests
+import getpass
 
 url = "***REMOVED***"
-
-another_ticket = ""
 
 username = input("Please enter your Jira username: ")
 password = getpass.getpass("Please enter your Jira password: ")
@@ -15,6 +14,7 @@ password = getpass.getpass("Please enter your Jira password: ")
 def add_sub_tasks():
     task_num = ""
     description = ""
+    another_ticket = ""
 
     while not task_num.isdigit():
         task_num = input("\nPlease enter the task number: AWRS-")
@@ -35,6 +35,8 @@ def add_sub_tasks():
         "Manual Device Testing - ",
         "Device Browserstack Testing - "
     ]
+
+    print(len(sub_tasks))
 
     for i in range(len(sub_tasks)):
         payload = {
@@ -62,11 +64,10 @@ def add_sub_tasks():
         if j_request.status_code != 201:
             print("Error with request.")
 
-        while another_ticket != "y" and another_ticket != "Y" and another_ticket != "n" and another_ticket != "N":
-            another_ticket = input("\nWould you like to add another? (y/n)\n")
+    while another_ticket != "y" and another_ticket != "Y" and another_ticket != "n" and another_ticket != "N":
+        another_ticket = input("\nWould you like to add another? (y/n)\n")
 
-        if another_ticket == "y" or another_ticket == "Y":
-            another_ticket = ""
-            add_sub_tasks()
+    if another_ticket == "y" or another_ticket == "Y":
+        add_sub_tasks()
 
 add_sub_tasks()
