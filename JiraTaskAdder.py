@@ -6,7 +6,7 @@ import json, requests, getpass
 
 url = "***REMOVED***"
 
-anotherTicket = ""
+another_ticket = ""
 
 username = input("Please enter your Jira username: ")
 password = getpass.getpass("Please enter your Jira password: ")
