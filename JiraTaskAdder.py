@@ -5,6 +5,7 @@
 import requests
 import getpass
 import json
+from tqdm import tqdm
 
 url = "https://jira.tools.tax.service.gov.uk/rest/api/2/issue/"
 
@@ -46,7 +47,7 @@ def add_sub_tasks():
             "Device Browserstack Testing - "
         ]
 
-        for i in range(len(sub_tasks)):
+        for i in tqdm(range(len(sub_tasks))):
             payload = {
                 "fields":
                     {
