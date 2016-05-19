@@ -7,6 +7,7 @@ import getpass
 import json
 from tqdm import tqdm
 
+# Change the URL to the correct location of your Jira
 url = "***REMOVED***"
 
 username = input("Please enter your Jira username: ")
